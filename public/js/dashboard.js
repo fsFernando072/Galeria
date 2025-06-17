@@ -42,6 +42,10 @@ function alterarTitulo(idObra) {
 function exibirObra(idObra) {
     let todosOsGraficos = JSON.parse(sessionStorage.OBRAS);
 
+    setInterval(() => {
+        cadastrar(idObra);
+    }, 1000);
+
     for (i = 0; i < todosOsGraficos.length; i++) {
         // exibindo - ou não - o gráfico
         if (todosOsGraficos[i].id != idObra) {
@@ -232,4 +236,35 @@ function atualizarGrafico(idObra, dados, myChart) {
             console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
         });
 
+}
+
+function cadastrar(idObra) {
+    let luminosidade = (Math.random() * (100 - 1) + 1).toFixed();
+    let temperatura = (Math.random() * (23 - 5) + 5).toFixed();
+    
+    fetch("/usuarios/cadastrar", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+    
+          luminosidade: luminosidade,
+          temperatura: temperatura,
+          idObra: idObra,
+        }),
+      })
+        .then(function (resposta) {
+          console.log("resposta: ", resposta);
+    
+          if (resposta.ok) {
+            console.log('Cadastrando valores');
+          } else {
+            throw "Houve um erro ao tentar realizar o cadastro!";
+          }
+        })
+        .catch(function (resposta) {
+          console.log(`#ERRO: ${resposta}`);
+          finalizarAguardar();
+        });
 }
