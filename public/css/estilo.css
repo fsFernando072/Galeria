@@ -6,6 +6,7 @@ body {
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background-color: black;
+  overflow-x: hidden;
 }
 
 :root {
@@ -15,9 +16,13 @@ body {
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-footer: 65px;
 
-  --azul: #224c76;
-  --amarelo: #b2a500;
+  --azul-escuro: #2639A6;
+  --amarelo: #D9AE30;
+  --amarelo-claro: #D9D48F;
   --off-white: #f5f5f5;
+  --azul-claro: #4E74A6;
+  --azul: #3A4E96;
+
 }
 
 .container {
@@ -28,7 +33,7 @@ body {
 
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid black;
+
 }
 
 .header .container {
@@ -40,6 +45,10 @@ body {
 .header a {
   text-decoration: none;
   color: #9ae2e6;
+}
+
+.header li:hover {
+  transform: scale(1.25);
 }
 
 .agora {
