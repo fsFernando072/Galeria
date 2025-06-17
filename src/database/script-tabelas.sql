@@ -1,3 +1,4 @@
+drop database if exists monitorarte;
 
 CREATE DATABASE monitorarte;
 
