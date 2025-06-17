@@ -11,4 +11,8 @@ router.get("/tempo-real/:idObra", function (req, res) {
     telemetriaController.buscarTelemetriaEmTempoReal(req, res);
 })
 
+router.post("/cadastrar", function (req, res) {
+    telemetriaController.cadastrar(req, res);
+})
+
 module.exports = router;

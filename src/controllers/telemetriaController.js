@@ -1,6 +1,6 @@
 var telemetriaModel = require("../models/telemetriaModel");
 
-function buscarUltimasTelemetria(req, res) {
+function buscarUltimaTelemetria(req, res) {
 
     const limite_linhas = 7;
 
@@ -64,7 +64,7 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-    buscarUltimasTelemetria,
+    buscarUltimaTelemetria,
     buscarTelemetriaEmTempoReal,
     cadastrar
 
