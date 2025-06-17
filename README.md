@@ -1,4 +1,4 @@
-<img src="/img/logoSemFoto.jpg">
+<img src="/img/logoSemFoto.png">
 
 <hr>
 
