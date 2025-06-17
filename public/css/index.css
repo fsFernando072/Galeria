@@ -2,7 +2,7 @@
 
 .banner {
   height: var(--tamanho-banner);
-  color: white;
+  color: var(--off-white);
   min-height: 100vh;
 }
 
@@ -41,7 +41,7 @@
 /* MISSÃO VISÃO VALORES */
 
 .social {
-  background-color: #b1a979;
+  background-color: var(--amarelo-claro);
   display: flex;
   min-height: 100vh;
 }
