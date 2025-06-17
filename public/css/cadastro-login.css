@@ -1,13 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Caprasimo&display=swap');
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Work Sans", sans-serif;
-  background-color: black;
-}
-
 :root {
   --tamanho-header: 80px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
@@ -62,13 +52,20 @@ body {
     width: 50%;
     background-color: var(--off-white);
     border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     color: var(--azul);
     flex-direction: column;
     height: fit-content;
     padding: 20px 0;
+  }
+
+  .card .divisao{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: linear-gradient(to right, var(--azul), #69a6cb);
   }
   
   .card h2 {
@@ -86,11 +83,11 @@ body {
   
   .formulario span {
     font-size: 15px;
-    font-weight: 800;
+    font-weight: 600;
   }
   
   .formulario input {
-    border: 2px solid #32b9cd;
+    border: 2px solid var(--azul);
     text-align: center;
     border-radius: 10px;
     margin: 0;
@@ -126,6 +123,10 @@ body {
     align-self: center;
     margin-top: 20px;
   }
+
+  .botao:hover{
+    background-image: linear-gradient(to right, var(--azul), #69a6cb);
+  }
   
   .loading-div {
     width: 50px;
@@ -155,7 +156,7 @@ body {
     width: 230px;
     position: fixed;
     border-radius: 4px;
-    border: #ED145B 3px solid;
+    border: var(--azul) 3px solid;
     padding: 10px;
     margin-right: 10%;
   }
@@ -190,7 +191,7 @@ body {
     font-size: 18px;
     padding: 10px 15px;
     color: white;
-    background-image: ;
+    background-color: var(--azul);
     width: 120px;
     align-self: center;
     margin-top: 5px;
@@ -207,14 +208,3 @@ body {
     width: 50px;
   }
   
-  /* SIMULADOR */
-  
-  .simulador {
-    color: white;
-  }
-  
-  .simulador .container {
-    flex-direction: column;
-    overflow: scroll;
-    height: var(--tamanho-simulador);
-  }
