@@ -15,7 +15,7 @@ function obterdados(idObra) {
             }
         })
         .catch(function (error) {
-            console.error(`Erro na obtenção dos dados do aquario p/ gráfico: ${error.message}`);
+            console.error(`Erro na obtenção dos dados da obra p/ gráfico: ${error.message}`);
         });
 
 }
@@ -66,8 +66,8 @@ function alertar(resposta, idObra) {
 
     var card;
 
-    if (document.getElementById(`temp_aquario_${idObra}`) != null) {
-        document.getElementById(`temp_aquario_${idObra}`).innerHTML = temp + "°C";
+    if (document.getElementById(`temp_obra_${idObra}`) != null) {
+        document.getElementById(`temp_obra_${idObra}`).innerHTML = temp + "°C";
     }
 
     if (document.getElementById(`card_${idObra}`)) {
@@ -104,7 +104,7 @@ function exibirCards() {
 
 function transformarEmDiv({ idObra, temp, grauDeAviso, grauDeAvisoCor }) {
 
-    var descricao = JSON.parse(sessionStorage.AQUARIOS).find(item => item.id == idObra).descricao;
+    var descricao = JSON.parse(sessionStorage.OBRAS).find(item => item.id == idObra).descricao;
     return `
     <div class="mensagem-alarme">
         <div class="informacao">
@@ -117,8 +117,26 @@ function transformarEmDiv({ idObra, temp, grauDeAviso, grauDeAvisoCor }) {
     `;
 }
 
+function exibirObras() {
+    JSON.parse(sessionStorage.OBRAS).forEach(item => {
+        document.getElementById("cardObras").innerHTML += `
+                <div class="card-obra">
+                    <div class="title-obra">
+                        <h1>${item.descricao}</h1>
+                    </div>
+                    <div class="desc-obra">
+                    <div class="temperatura">
+                        <p id="temp_obra_${item.id}">-°C</p>
+                    </div>
+                    <div class="cor-alerta" id="card_${item.id}"></div>
+                </div>
+                </div>
+                `
+    });
+}
+
 function atualizacaoPeriodica() {
-    JSON.parse(sessionStorage.AQUARIOS).forEach(item => {
+    JSON.parse(sessionStorage.OBRAS).forEach(item => {
         obterdados(item.id)
     });
     setTimeout(atualizacaoPeriodica, 5000);
