@@ -44,6 +44,7 @@
     background-color: var(--azul);
     display: flex;
     min-height: 100vh;
+    align-items: center;
 }
 
 .social .container {
