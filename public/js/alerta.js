@@ -118,6 +118,9 @@ function transformarEmDiv({ idObra, temp, grauDeAviso, grauDeAvisoCor }) {
 }
 
 function exibirObras() {
+        setInterval(() => {
+        cadastrar(idObra);
+    }, 1000);
     JSON.parse(sessionStorage.OBRAS).forEach(item => {
         document.getElementById("cardObras").innerHTML += `
                 <div class="card-obra">
