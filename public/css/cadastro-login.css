@@ -19,11 +19,13 @@
 .login {
     height: var(--tamanho-login);
     background-size: cover;
+    min-height: 100vh;
   }
 
   .banner {
     height: var(--tamanho-banner);
     color: white;
+    min-height: 100vh;
   }
   
   .imgbanner {
@@ -31,7 +33,6 @@
     top: 50%;
     left: 50%;
     min-width: 100%;
-    min-height: 100%;
     width: auto;
     height: auto;
     z-index: -1;
@@ -43,7 +44,7 @@
   .banner .container {
     justify-content: center;
     align-items: center;
-    height: 100%;
+    min-height: 90vh;
   }
 
   .login .container {
