@@ -40,8 +40,5 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-  buscarPorCnpj,
-  buscarPorId,
-  cadastrar,
   listar,
 };

@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
 
-var GaleriaController = require("../controllers/GaleriaController");
+var galeriaController = require("../controllers/galeriaController");
 
 router.get("/listar", function (req, res) {
-  GaleriaController.listar(req, res);
+  galeriaController.listar(req, res);
 });
 
 module.exports = router;
