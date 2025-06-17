@@ -1,10 +1,10 @@
 var express = require("express");
 var router = express.Router();
 
-var empresaController = require("../controllers/empresaController");
+var galeriaController = require("../controllers/galeriaController");
 
 router.get("/listar", function (req, res) {
-  empresaController.listar(req, res);
+  galeriaController.listar(req, res);
 });
 
 module.exports = router;
