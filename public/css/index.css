@@ -2,7 +2,8 @@
 
 .banner {
   height: var(--tamanho-banner);
-  color: white;
+  color: var(--off-white);
+  min-height: 100vh;
 }
 
 .imgbanner {
@@ -30,6 +31,7 @@
   margin: 0;
   padding: 0;
   font-size: 36px;
+    font-weight: 800;
 }
 
 .banner .container span {
@@ -39,8 +41,9 @@
 /* MISSÃO VISÃO VALORES */
 
 .social {
-  background-color: #e5e5e5;
+  background-color: var(--amarelo-claro);
   display: flex;
+  min-height: 100vh;
 }
 
 .social .container {
@@ -56,10 +59,16 @@
   justify-content: space-between;
   width: 100%;
   padding: 30px 0;
+  gap: 3rem;
 }
 
 .social p {
   text-align: center;
+}
+
+.social img{
+    width: 150px;
+    height: 150px;
 }
 
 .box {
