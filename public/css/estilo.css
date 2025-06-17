@@ -28,11 +28,7 @@ body {
 
 .header {
   height: var(--tamanho-header);
-<<<<<<< HEAD
-  border-bottom: 2px solid #cdc532;
-=======
   border-bottom: 2px solid black;
->>>>>>> 663373e7b7992f40bc7eeeaff33d51268ce5bb90
 }
 
 .header .container {
