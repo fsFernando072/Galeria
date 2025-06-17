@@ -6,6 +6,8 @@ window.onload = exibirObrasDoUsuario();
 
 function exibirObrasDoUsuario() {
     var obras = JSON.parse(sessionStorage.OBRAS);
+    console.log(obras);
+    
     obras.forEach(item => {
         document.getElementById("btnObra").innerHTML += `
             <button class="btn-chart" onclick="exibirObra(${item.id})" id="btnObra${item.id}">${item.descricao}</button>
@@ -242,7 +244,7 @@ function cadastrar(idObra) {
     let luminosidade = (Math.random() * (100 - 1) + 1).toFixed();
     let temperatura = (Math.random() * (23 - 5) + 5).toFixed();
     
-    fetch("/usuarios/cadastrar", {
+    fetch("/telemetria/cadastrar", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

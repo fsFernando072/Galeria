@@ -31,7 +31,7 @@ function buscarTelemetriaEmTempoReal(idObra) {
 
 function cadastrar(temperatura, luminosidade, idObra) {
     var instrucaoSql = `
-        INSERT INTO telemetria (id, luminosidade, lm35_temperatura, momento, fk_obra) VALUES (${luminosidade} , ${temperatura}, current_timestamp(), ${idObra});
+        INSERT INTO telemetria (luminosidade, lm35_temperatura, momento, fk_obra) VALUES (${luminosidade} , ${temperatura}, current_timestamp(), ${idObra});
     `;
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
@@ -39,5 +39,6 @@ function cadastrar(temperatura, luminosidade, idObra) {
 
 module.exports = {
     buscarUltimaTelemetria,
-    buscarTelemetriaEmTempoReal
+    buscarTelemetriaEmTempoReal,
+    cadastrar
 }

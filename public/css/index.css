@@ -43,7 +43,7 @@
 .social {
     background-color: var(--azul);
     display: flex;
-    min-height: 100vh;
+    min-height: 85vh;
     align-items: center;
 }
 
