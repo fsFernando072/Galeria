@@ -1,14 +1,14 @@
 var express = require("express");
 var router = express.Router();
 
-var medidaController = require("../controllers/medidaController");
+var telemetriaController = require("../controllers/telemetriaController");
 
-router.get("/ultimas/:idAquario", function (req, res) {
-    medidaController.buscarUltimasMedidas(req, res);
+router.get("/ultimas/:idObra", function (req, res) {
+    telemetriaController.buscarUltimaTelemetria(req, res);
 });
 
-router.get("/tempo-real/:idAquario", function (req, res) {
-    medidaController.buscarMedidasEmTempoReal(req, res);
+router.get("/tempo-real/:idObra", function (req, res) {
+    telemetriaController.buscarTelemetriaEmTempoReal(req, res);
 })
 
 module.exports = router;
