@@ -3,11 +3,11 @@ var database = require("../database/config");
 function buscarUltimaTelemetria(idObra, limite_linhas) {
 
     var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
+        luminosidade, 
+        lm35_temperatura temperatura,
                         momento,
                         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico
-                    FROM medida
+                    FROM telemetria
                     WHERE fk_obra = ${idObra}
                     ORDER BY id DESC LIMIT ${limite_linhas}`;
 
@@ -18,11 +18,11 @@ function buscarUltimaTelemetria(idObra, limite_linhas) {
 function buscarTelemetriaEmTempoReal(idObra) {
 
     var instrucaoSql = `SELECT 
-        dht11_temperatura as temperatura, 
-        dht11_umidade as umidade,
+        luminosidade, 
+        lm35_temperatura temperatura,
                         DATE_FORMAT(momento,'%H:%i:%s') as momento_grafico, 
                         fk_obra 
-                        FROM medida WHERE fk_obra = ${idObra} 
+                        FROM telemetria WHERE fk_obra = ${idObra} 
                     ORDER BY id DESC LIMIT 1`;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);

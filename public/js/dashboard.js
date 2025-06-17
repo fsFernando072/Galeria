@@ -122,7 +122,7 @@ function plotarGrafico(resposta, idObra) {
     let dados = {
         labels: labels,
         datasets: [{
-            label: 'Umidade',
+            label: 'Luminosidade',
             data: [],
             fill: false,
             borderColor: 'rgb(75, 192, 192)',
@@ -145,7 +145,7 @@ function plotarGrafico(resposta, idObra) {
     for (i = 0; i < resposta.length; i++) {
         var registro = resposta[i];
         labels.push(registro.momento_grafico);
-        dados.datasets[0].data.push(registro.umidade);
+        dados.datasets[0].data.push(registro.luminosidade);
         dados.datasets[1].data.push(registro.temperatura);
     }
 
@@ -210,8 +210,8 @@ function atualizarGrafico(idObra, dados, myChart) {
                     dados.labels.shift(); // apagar o primeiro
                     dados.labels.push(novoRegistro[0].momento_grafico); // incluir um novo momento
 
-                    dados.datasets[0].data.shift();  // apagar o primeiro de umidade
-                    dados.datasets[0].data.push(novoRegistro[0].umidade); // incluir uma nova medida de umidade
+                    dados.datasets[0].data.shift();  // apagar o primeiro de luminosidade
+                    dados.datasets[0].data.push(novoRegistro[0].luminosidade); // incluir uma nova medida de luminosidade
 
                     dados.datasets[1].data.shift();  // apagar o primeiro de temperatura
                     dados.datasets[1].data.push(novoRegistro[0].temperatura); // incluir uma nova medida de temperatura
