@@ -1,14 +1,14 @@
-var medidaModel = require("../models/medidaModel");
+var telemetriaModel = require("../models/telemetriaModel");
 
-function buscarUltimasMedidas(req, res) {
+function buscarUltimasTelemetria(req, res) {
 
     const limite_linhas = 7;
 
-    var idAquario = req.params.idAquario;
+    var idObra = req.params.idObra;
 
-    console.log(`Recuperando as ultimas ${limite_linhas} medidas`);
+    console.log(`Recuperando as ultimas ${limite_linhas} telemetria`);
 
-    medidaModel.buscarUltimasMedidas(idAquario, limite_linhas).then(function (resultado) {
+    telemetriaModel.buscarUltimaTelemetria(idObra, limite_linhas).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -16,19 +16,19 @@ function buscarUltimasMedidas(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar a ultima telemetria.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
 
 
-function buscarMedidasEmTempoReal(req, res) {
+function buscarTelemetriaEmTempoReal(req, res) {
 
-    var idAquario = req.params.idAquario;
+    var idObra = req.params.idObra;
 
-    console.log(`Recuperando medidas em tempo real`);
+    console.log(`Recuperando telemetrias em tempo real`);
 
-    medidaModel.buscarMedidasEmTempoReal(idAquario).then(function (resultado) {
+    telemetriaModel.buscarTelemetriaEmTempoReal(idObra).then(function (resultado) {
         if (resultado.length > 0) {
             res.status(200).json(resultado);
         } else {
@@ -36,13 +36,13 @@ function buscarMedidasEmTempoReal(req, res) {
         }
     }).catch(function (erro) {
         console.log(erro);
-        console.log("Houve um erro ao buscar as ultimas medidas.", erro.sqlMessage);
+        console.log("Houve um erro ao buscar a ultima telemetria.", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
 
 module.exports = {
-    buscarUltimasMedidas,
-    buscarMedidasEmTempoReal
+    buscarUltimasTelemetria,
+    buscarTelemetriaEmTempoReal
 
 }

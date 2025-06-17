@@ -1,3 +1,4 @@
+drop database if exists monitorarte;
 
 CREATE DATABASE monitorarte;
 
@@ -7,7 +8,7 @@ CREATE TABLE galeria (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome varchar(20),
 	cnpj CHAR(14),
-	codigo char(8)
+	codigo char(8) UNIQUE
 );
 
 insert into galeria (cnpj, codigo, nome)
@@ -20,8 +21,8 @@ CREATE TABLE usuario (
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
-	fk_galeria INT,
-	FOREIGN KEY (fk_galeria) REFERENCES galeria(id)
+	codigo INT,
+	FOREIGN KEY (codigo) REFERENCES galeria(codigo)
 );
 
 create table obra (
