@@ -1,5 +1,4 @@
 drop database if exists monitorarte;
-
 CREATE DATABASE monitorarte;
 
 USE monitorarte;
@@ -32,20 +31,36 @@ create table obra (
 	FOREIGN KEY (fk_galeria) REFERENCES galeria(id)
 );
 
-
 insert into obra (descricao, fk_galeria)
 values		('Obra de arte conceitual Muito incrível', 1),
 			('Obra de arte confusa, achei chata', 2);
-			
+
+create table sensor (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+    nome varchar(20),
+    status varchar(11) default 'Ativo',
+	fk_obra INT,
+    constraint check(status in ('Manutenção', 'Inativo', 'Ativo')),
+	FOREIGN KEY (fk_obra) REFERENCES obra(id)
+);
+
+insert into sensor (nome, fk_obra)
+values		('LDR', 1),
+			('LDR', 2),
+            ('LM35', 1),
+            ('LM35', 2);
 
 create table telemetria (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
+	dados DECIMAL,
 	momento DATETIME,
-	fk_obra INT,
-	FOREIGN KEY (fk_obra) REFERENCES obra(id)
+	fk_sensor INT,
+	FOREIGN KEY (fk_sensor) REFERENCES sensor(id)
 );
+
+
+
+
 
 
 
