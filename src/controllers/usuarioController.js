@@ -20,7 +20,7 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
-                        obraModel.buscarAquariosPorGaleria(resultadoAutenticar[0].galeriaId)
+                        obraModel.buscarObrasPorGaleria(resultadoAutenticar[0].galeriaId)
                             .then((resultadoAquarios) => {
                                 if (resultadoAquarios.length > 0) {
                                     res.json({
@@ -56,7 +56,7 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var fk_galeria = req.body.idEmpresaVincularServer;
+    var fk_galeria = req.body.idGaleriaVincularServer;
 
 
     if (nome == undefined) {
@@ -65,11 +65,11 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    } else if (fkGaleria == undefined) {
+    } else if (fk_galeria == undefined) {
         res.status(400).send("Sua Galeria a vincular está undefined!");
     } else {
 
-        usuarioModel.cadastrar(nome, email, senha, fk_galeria)
+        usuarioModel.cadastrar(nome, email, senha,fk_galeria)
             .then(
                 function (resultado) {
                     res.json(resultado);
