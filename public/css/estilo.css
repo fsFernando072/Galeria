@@ -79,7 +79,7 @@ body {
 /* FOOTER */
 
 .footer {
-  background-color: var(--azul-escuro);
+  background-color: var(--azul);
   height: 150px;
   color: var(--off-white);
   display: flex;
@@ -156,3 +156,4 @@ body {
     transform: rotate(25deg)
   }
 }
+
