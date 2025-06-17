@@ -47,13 +47,20 @@
       </div>
     </div>
 
-
+    <div class="banner">
+    
     <div class="container">
+
+      <img src="./assets/imgs/wallpaper_noite_estrelada.jpg" alt="" class="imgbanner">
       
       <div class="card card-cadastro">
         <h2>Bem-vindo!</h2>
         <div class="formulario">
 
+          <div class="campo">
+            <span>Código:</span>
+            <input id="confirmacao_senha_input" type="text" placeholder="Seu código" />
+          </div>
           <div class="campo">
             <span>Nome:</span>
             <input id="nome_input" type="text" placeholder="Seu nome" />
@@ -66,10 +73,6 @@
             <span>Senha:</span>
             <input id="senha_input" type="password" placeholder="******" />
           </div>
-          <div class="campo">
-            <span>Confirmação da Senha:</span>
-            <input id="confirmacao_senha_input" type="password" placeholder="******" />
-          </div>
           <button class="botao" onclick="cadastrar()">Cadastrar</button>
         </div>
         <div id="div_aguardar" class="loading-div">
@@ -79,6 +82,7 @@
         <div id="div_erros_login"></div>
       </div>
     </div>
+  </div>
   </div>
 
   <!--footer inicio-->
