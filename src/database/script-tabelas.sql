@@ -8,7 +8,7 @@ CREATE TABLE galeria (
 	id INT PRIMARY KEY AUTO_INCREMENT,
 	nome varchar(20),
 	cnpj CHAR(14),
-	codigo char(8) UNIQUE
+	codigo char(8)
 );
 
 insert into galeria (cnpj, codigo, nome)
@@ -21,8 +21,8 @@ CREATE TABLE usuario (
 	nome VARCHAR(50),
 	email VARCHAR(50),
 	senha VARCHAR(50),
-	codigo INT,
-	FOREIGN KEY (codigo) REFERENCES galeria(codigo)
+	fk_galeria INT,
+	FOREIGN KEY (fk_galeria) REFERENCES galeria(id)
 );
 
 create table obra (
